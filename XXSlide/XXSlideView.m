@@ -128,11 +128,11 @@ const static NSInteger tagView = 1000000;
 #pragma mark --- scrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger dataCount = self.imagesArr.count;
-    if (scrollView.contentOffset.x == 240 * (dataCount - 2)) {
-        scrollView.contentOffset = CGPointMake(240 * 2, 0);
+    if (scrollView.contentOffset.x == cellWidth * (dataCount - 2)) {
+        scrollView.contentOffset = CGPointMake(cellWidth * 2, 0);
     }
-    if (scrollView.contentOffset.x == 240) {
-        scrollView.contentOffset = CGPointMake(240 * (dataCount - 3), 0);
+    if (scrollView.contentOffset.x == cellWidth) {
+        scrollView.contentOffset = CGPointMake(cellWidth * (dataCount - 3), 0);
     }
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -151,13 +151,9 @@ const static NSInteger tagView = 1000000;
     [self.timer setFireDate:[NSDate distantFuture]];
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [self.timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+    [self.timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:timeBetween]];
 }
 
-- (void)dealloc {
-    [self.timer invalidate];
-    self.timer = nil;
-}
 
 /*
 // Only override drawRect: if you perform custom drawing.
