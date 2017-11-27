@@ -30,10 +30,14 @@
     self.slideView.isSlide = YES;
     // 是否自动轮播
     self.slideView.isAutoScro = YES;
-    self.dataArray = @[@"1.png", @"2.png", @"3.png", @"3.png", @"3.png"];
+    // 轮播间隔时间
+    self.slideView.timeBetween = 3.0;
+    // 图片数组
+    self.dataArray = @[@"1.png", @"2.png", @"3.png"];
     [self.slideView setImages:self.dataArray];
+    // 点击图片
     slideView.clickCellBlock = ^(NSInteger item) {
-        NSLog(@"点击 ========= %ld", item);
+        NSLog(@"点击第 ====== %ld ===== 张图片", item);
     };
     // Do any additional setup after loading the view, typically from a nib.
 }
