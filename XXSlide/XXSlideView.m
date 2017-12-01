@@ -153,7 +153,7 @@ const static NSInteger tagView = 1000000;
     [self.timer setFireDate:[NSDate distantFuture]];
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [self.timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+    [self.timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:self.timeBetween]];
 }
 
 - (void)dealloc {
